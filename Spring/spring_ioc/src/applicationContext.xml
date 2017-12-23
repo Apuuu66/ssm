@@ -3,5 +3,45 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="userService" class="com.ln.ioc.UserServiceImpl"/>
+
+    <!--setter方法注入-->
+    <bean id="userService" class="com.ln.ioc.UserServiceImpl">
+        <property name="str" value="属性注入"/>
+        <property name="ud" ref="userDao"></property>
+    </bean>
+    <bean id="userDao" class="com.ln.ioc.UserDaoImpl"/>
+
+
+    <!--DI-->
+    <!--构造方法注入-->
+    <bean id="car" class="com.ln.Di.Car">
+        <constructor-arg name="name" value="宝马"/>
+        <constructor-arg name="price" value="100万"/>
+    </bean>
+    <!--注入集合-->
+    <bean name="flower" class="com.ln.Di.Flower">
+        <property name="category"><!--注入数组-->
+            <list>
+                <value>玫瑰</value>
+                <value>百合</value>
+            </list>
+        </property>
+        <property name="list"><!--注入list-->
+            <list>
+                <value>qiqi</value>
+                <ref bean="car"/>
+            </list>
+        </property>
+        <property name="map"><!--注入map-->
+           <map>
+               <entry key="aaa" value="aaa"></entry>
+           </map>
+        </property>
+        <property name="properties"><!--prop 注入属性文件-->
+            <props>
+                <prop key="username">root</prop>
+                <prop key="password">123456</prop>
+            </props>
+        </property>
+    </bean>
 </beans>

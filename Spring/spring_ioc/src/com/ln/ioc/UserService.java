@@ -8,4 +8,5 @@ package com.ln.ioc;
 public interface UserService {
     int i = 0;
     public void say();
+    public void save();
 }
