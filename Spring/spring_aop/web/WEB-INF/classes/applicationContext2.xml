@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"> <!-- bean definitions here -->
+
+    <bean id="customerDao" class="com.ln.aop.CustomerDaoImpl"/>
+    <bean id="myAspectXml" class="com.ln.aop.MyAspectXml"/>
+
+    <!--切入点表达式-->
+
+    <aop:config>
+        <aop:aspect ref="myAspectXml">
+            <!--
+                1.execution() 固定的,不能不写
+                2.public 可以省略不写
+                3.void   int  *表任意类型的返回值
+                4.包名 * *.*.*.CustomerDaoImpl.save()
+                *..*  表前面任意层 * *..*.CustomerDaoImpl.save()
+                * *..*.*DaoImpl.save*()
+                void com.ln.aop.CustomerDaoImpl.save(*) 表一个参数
+                void com.ln.aop.CustomerDaoImpl.save*(..)表0个或任意个参数
+            -->
+            <!--<aop:before method="log" pointcut="execution(public void com.ln.aop.CustomerDaoImpl.save())"/>-->
+            <aop:before method="log" pointcut="execution(void com.ln.aop.CustomerDaoImpl.save*(..))"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
