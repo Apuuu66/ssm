@@ -1,4 +1,4 @@
-package po;
+package com.ln.pojo;
 
 /**
  * Created by IntelliJ IDEA.

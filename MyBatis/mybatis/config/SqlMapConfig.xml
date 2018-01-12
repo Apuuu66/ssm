@@ -33,7 +33,7 @@
 
     <mappers>
         <mapper resource="User.xml"/>
-
+        <mapper class="com.ln.mapper.UserMapper"/>
         <!--
         使用class属性引入接口的全路径名称:
         使用规则:
@@ -47,6 +47,6 @@
                 1. 接口的名称和映射文件名称除扩展名外要完全相同
                 2. 接口和映射文件要放在同一个目录下
         -->
-        <package name="cn.itheima.mapper"/>
+        <!--<package name="cn.itheima.mapper"/>-->
     </mappers>
 </configuration>
