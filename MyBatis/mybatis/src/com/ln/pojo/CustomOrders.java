@@ -1,33 +1,21 @@
 package com.ln.pojo;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-
-import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-public class User implements Serializable {
-	private int id;
+public class CustomOrders extends Orders{
+
+	private int uid;
 	private String username;// 用户姓名
 	private String sex;// 性别
 	private Date birthday;// 生日
 	private String address;// 地址
-	private List<Orders> ordersList;
-
-	public List<Orders> getOrdersList() {
-		return ordersList;
+	
+	
+	public int getUid() {
+		return uid;
 	}
-
-	public void setOrdersList(List<Orders> ordersList) {
-		this.ordersList = ordersList;
-	}
-
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
+	public void setUid(int uid) {
+		this.uid = uid;
 	}
 	public String getUsername() {
 		return username;
@@ -53,9 +41,6 @@ public class User implements Serializable {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
-	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
-	}
+	
+	
 }

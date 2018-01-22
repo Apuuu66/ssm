@@ -1,7 +1,9 @@
 package com.ln.pojo;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.util.Date;
-import java.util.List;
 
 public class Orders {
     private Integer id;
@@ -13,6 +15,16 @@ public class Orders {
     private Date createtime;
 
     private String note;
+
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Integer getId() {
         return id;
@@ -54,6 +66,8 @@ public class Orders {
         this.note = note == null ? null : note.trim();
     }
 
-    
-    
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+    }
 }
