@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="twinkle_dao:war">
-    <output-path>$PROJECT_DIR$/twinkle_dao/target</output-path>
-    <root id="archive" name="twinkle_dao.war">
-      <element id="artifact" artifact-name="twinkle_dao:war exploded" />
-    </root>
-  </artifact>
-</component>
